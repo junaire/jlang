@@ -398,7 +398,7 @@ Value *LogErrorV(const char *Str) {
 // In the LLVM IR, numeric constants are represented with the ConstantFP class,
 // which holds the numeric value in an APFloat internally
 Value *NumberExprAST::codegen() {
-  return ConstantFP::get(TheContext, APFloat(Val));
+  return ConstantFP::get(*TheContext, APFloat(Val));
 }
 
 Value *VariableExprAST::codegen() {
